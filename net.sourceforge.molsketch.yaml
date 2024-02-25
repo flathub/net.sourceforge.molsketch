@@ -1,7 +1,8 @@
 app-id: net.sourceforge.molsketch
-runtime: org.kde.Platform
+runtime: org.kde.Sdk
 sdk: org.kde.Sdk
 runtime-version: 5.15-22.08
+base-version: 5.15-22.08
 command: molsketch
 rename-icon: molsketch
 rename-desktop-file: molsketch.desktop
@@ -33,16 +34,16 @@ modules:
   - name: Molsketch
     buildsystem: cmake-ninja
     config-opts:
+      - -DCMAKE_INSTALL_PREFIX:PATH=/app
       - -DMSK_PREFIX=/app
       - -DMSK_INSTALL_LIBS=/lib
+      # - -DMSK_STATIC_LIB = true
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/molsketch/files/Molsketch/Molsketch-0.8.0-src.tar.gz
-        sha256: 329c787c792dc6a040926770aa0da95ef120bef19440f6e0ab12b05ca8e126e4
+        url: https://sourceforge.net/projects/molsketch/files/Molsketch/Molsketch-0.8.1-src.tar.gz
+        sha256: eb016f977024b6ff11804748d8436c29a9652a5632fdff13b26e42d0507f8a02
         x-checker-data:
           type: anitya
           project-id: 15739
           stable-only: true
           url-template: https://sourceforge.net/projects/molsketch/files/Molsketch/Molsketch-$version-src.tar.gz
-      - type: patch
-        path: update_c_standard.patch
