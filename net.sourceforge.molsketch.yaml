@@ -39,8 +39,8 @@ modules:
       - -DMSK_INSTALL_LIBS=/lib
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/molsketch/files/Molsketch/Molsketch-0.8.1-src.tar.gz
-        sha256: eb016f977024b6ff11804748d8436c29a9652a5632fdff13b26e42d0507f8a02
+        url: https://sourceforge.net/projects/molsketch/files/Molsketch/Molsketch-0.8.2-src.tar.gz
+        sha256: 5a8a18e4eb8e927f5c4bf97eb44ab191f4fa996298123630e8751c0b9e7de5e2
         x-checker-data:
           type: anitya
           project-id: 15739
