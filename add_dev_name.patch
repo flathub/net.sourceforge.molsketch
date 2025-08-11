@@ -1,6 +1,6 @@
 diff -ruN a/molsketch/net.sourceforge.molsketch.appdata.xml c/molsketch/net.sourceforge.molsketch.appdata.xml
 --- a/molsketch/net.sourceforge.molsketch.appdata.xml	2024-02-25 12:23:17.000000000 +0100
-+++ c/molsketch/net.sourceforge.molsketch.appdata.xml	2024-11-12 01:19:07.173922903 +0100
++++ c/molsketch/net.sourceforge.molsketch.appdata.xml	2025-08-11 12:00:50.278240882 +0200
 @@ -5,6 +5,7 @@
    <metadata_license>CC0-1.0</metadata_license>
    <project_license>GPL-2.0-only</project_license>
@@ -9,12 +9,14 @@ diff -ruN a/molsketch/net.sourceforge.molsketch.appdata.xml c/molsketch/net.sour
    <summary>2D Molecular Structures Editor</summary>
  
    <description>
-@@ -55,7 +56,7 @@
+@@ -55,7 +56,9 @@
    </provides>
    <content_rating type="oars-1.1"/>
    <releases>
 -      <release version="0.8.0" date="2022-11-07">
 -      </release>
++      <release version="0.8.3" date="2025-08-03"/>
++      <release version="0.8.2" date="2025-06-22"/>
 +      <release version="0.8.1" date="2024-02-25"/>
 +      <release version="0.8.0" date="2022-11-07"/>
    </releases>
