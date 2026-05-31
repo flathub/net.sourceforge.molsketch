@@ -1,7 +1,7 @@
 app-id: net.sourceforge.molsketch
 runtime: org.kde.Sdk
 sdk: org.kde.Sdk
-runtime-version: 5.15-24.08
+runtime-version: 5.15-25.08
 command: molsketch
 rename-icon: molsketch
 rename-desktop-file: molsketch.desktop
@@ -11,6 +11,25 @@ finish-args:
   - --device=dri
   - --share=network
 modules:
+  - name: rapidjson
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - -DRAPIDJSON_BUILD_DOC=OFF
+      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
+      - -DRAPIDJSON_BUILD_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz
+        sha256: bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e
+        x-checker-data:
+          type: anitya
+          project-id: 7422
+          stable-only: true
+          url-template: https://github.com/Tencent/rapidjson/archive/v${version}.tar.gz
+      - type: patch
+        path: Removed_non-compiling_assignment_operator.patch
+
   - name: OpenBabel
     buildsystem: cmake
     builddir: true
@@ -19,17 +38,14 @@ modules:
       - -DENABLE_TESTS=OFF
     sources:
       - type: archive
-        url: https://github.com/openbabel/openbabel/releases/download/openbabel-3-1-1/openbabel-3.1.1-source.tar.bz2
-        sha256: a6ec8381d59ea32a4b241c8b1fbd799acb52be94ab64cdbd72506fb4e2270e68
+        url: https://github.com/openbabel/openbabel/archive/refs/tags/openbabel-3-2-0.tar.gz
+        sha256: 9aadf9f01b3d0ff15d49fcd28d7d76b923218d70bf10f99ea4cc466607f4c7e2
         x-checker-data:
           type: anitya
           project-id: 2539
           stable-only: true
-          url-template: https://github.com/openbabel/openbabel/releases/download/openbabel-${major}-${minor}-${patch}/openbabel-${version}-source.tar.bz2
-      - type: patch
-        path: Removed_non-compiling_assignment_operator.patch
-      - type: patch
-        path: fix_time_check_typo.patch
+          url-template: https://github.com/openbabel/openbabel/archive/refs/tags/openbabel-${version}.tar.gz
+
 
   - name: Molsketch
     buildsystem: cmake-ninja
